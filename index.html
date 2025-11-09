@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacey Nyambura - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00247D',
+                        secondary: '#98B4D4',
+                        accent: '#6D327C',
+                        highlight: '#DA1884',
+                        orange: '#E8552E',
+                        dark: '#1f2937',
+                        light: '#f8fafc'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/framer-motion@10.12.4/dist/framer-motion.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        /* Custom animations for interactive About section */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 1; transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 5px rgba(0, 36, 125, 0.3); }
+            50% { text-shadow: 0 0 20px rgba(0, 36, 125, 0.6), 0 0 30px rgba(0, 36, 125, 0.4); }
+        }
+
+        @keyframes lift {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 1s ease-out 0.2s both;
+        }
+
+        .animate-bounce-in {
+            animation: bounceIn 1s ease-out 0.4s both;
+        }
+
+        .typing-effect {
+            overflow: hidden;
+            border-right: 2px solid #00247D;
+            white-space: nowrap;
+            animation: typing 2s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #00247D; }
+        }
+
+        .hover-glow:hover {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .info-card {
+            padding: 1rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hover-lift:hover {
+            animation: lift 0.6s ease-in-out;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold text-primary">SN</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-dark hover:text-primary transition">Home</a>
+                    <a href="#about" class="text-dark hover:text-primary transition">About</a>
+                    <a href="#resume" class="text-dark hover:text-primary transition">Resume</a>
+                    <a href="#projects" class="text-dark hover:text-primary transition">Projects</a>
+                    <a href="#contact" class="text-dark hover:text-primary transition">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen grid grid-cols-1 md:grid-cols-2 px-4 pt-20">
+        <div class="flex items-center justify-start md:justify-center px-4">
+            <div class="text-left md:text-left max-w-lg">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dark mb-8">Hey There!</h1>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-2">I'm Stacey Nyambura</h2>
+                <p class="text-lg md:text-xl text-gray-600 mb-3">Full-Stack Developer | Machine Learning Enthusiast | Data Analyst</p>
+                <p class="text-base md:text-lg text-gray-500 mb-8">
+                    Building scalable web applications and intelligent solutions with Python, React, and modern cloud technologies
+                </p>
+                <div class="flex gap-4 flex-wrap">
+                    <a href="#contact" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition shadow-lg">Hire Me</a>
+                    <a href="#resume" class="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition">View Resume</a>
+                    <a href="#about" class="border border-gray-600 text-gray-600 px-6 py-3 rounded-lg hover:bg-gray-600 hover:text-white transition">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <div class="relative hidden md:block">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('my profile.jpg');"></div>
+            <div class="absolute inset-0 bg-white bg-opacity-40"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-dark mb-12 animate-fade-in">About Me</h2>
+            <div class="animate-slide-up">
+                <h3 class="text-2xl font-semibold text-dark mb-4 typing-effect text-center">"The Data Whisperer with a Business Mindset"</h3>
+                <p class="text-gray-600 mb-6 leading-relaxed hover-glow">
+                    A passionate Full-Stack Developer and Information Technology student at JKUAT with expertise
+                    in building end-to-end web applications. I specialize in creating scalable solutions
+                    using modern technologies like React, Python, FastAPI, and MongoDB.
+                </p>
+                <p class="text-gray-600 mb-6 leading-relaxed hover-glow">
+                    My journey into data analytics began with my experience working in sales,
+                    where I learned about customer needs, demands, and the flow of supply. I
+                    realized that to maintain and grow a business, understanding market trends
+                    is essential, which sparked my curiosity about data analysis. During my time
+                    in school, I was fortunate enough to dive deeper into data structures,
+                    analysis, and algorithms, which further fueled my passion.
+                </p>
+                <p class="text-gray-600 mb-6 leading-relaxed hover-glow">
+                    <strong>What I Do:</strong> I offer a distinctive viewpoint by merging data analytics with entrepreneurship.
+                    Committed to tackling local issues e.g., agriculture, local businesses and infrastructure.
+                    I integrate analytical skills with an entrepreneurial mindset to create sustainable solutions.
+                    Driven by an entrepreneurial spirit, dedicated to launching community projects, developing startups, and
+                    partnering on innovative initiatives. Always on the lookout for chances to learn, evolve, and make a positive impact in my community and
+                    beyond.
+                </p>
+                <p class="text-gray-600 mb-6 leading-relaxed hover-glow">
+                    My journey combines academic excellence with practical software development experience,
+                    demonstrated through deployed projects like Checkmate SaaS platform and machine learning
+                    research in healthcare analytics.
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="info-card hover-lift">
+                        <p class="font-semibold text-dark">Name:</p>
+                        <p class="text-gray-600">Stacey Nyambura</p>
+                    </div>
+                    <div class="info-card hover-lift">
+                        <p class="font-semibold text-dark">Email:</p>
+                        <p class="text-gray-600">staceynyambura6@gmail.com</p>
+                    </div>
+                    <div class="info-card hover-lift">
+                        <p class="font-semibold text-dark">Location:</p>
+                        <p class="text-gray-600">Nairobi, Kenya</p>
+                    </div>
+                    <div class="info-card hover-lift">
+                        <p class="font-semibold text-dark">Education:</p>
+                        <p class="text-gray-600">JKUAT BSc Information Technology</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-20 bg-gray-50 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-dark mb-12">Resume Highlights</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Work Experience -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-primary mb-4">Work Experience</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-dark">Full-Stack Developer</h4>
+                            <p class="text-secondary text-sm">2024 – Present</p>
+                            <p class="text-gray-700 text-sm">Designed secure, scalable web apps with RESTful APIs</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-dark">Data Analyst & Designer</h4>
+                            <p class="text-secondary text-sm">2023 – Present</p>
+                            <p class="text-gray-700 text-sm">KenGen attachment, SAP experience, business analytics</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-dark">Sales Assistant</h4>
+                            <p class="text-secondary text-sm">2019 – 2021</p>
+                            <p class="text-gray-700 text-sm">Customer insights & market trends</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-primary mb-4">Certifications</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-700"><i class="fas fa-certificate text-accent mr-2"></i>DataCamp MySQL (Intermediate)</li>
+                        <li class="text-gray-700"><i class="fas fa-certificate text-accent mr-2"></i>Cisco Cybersecurity Essentials</li>
+                        <li class="text-gray-700"><i class="fas fa-certificate text-accent mr-2"></i>Huawei HCIA Datacom</li>
+                    </ul>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-primary mb-4">Soft Skills</h3>
+                    <div class="grid grid-cols-1 gap-2">
+                        <div class="text-gray-700 text-sm"><i class="fas fa-brain text-accent mr-2"></i>Analytical Thinking</div>
+                        <div class="text-gray-700 text-sm"><i class="fas fa-clock text-accent mr-2"></i>Time Management</div>
+                        <div class="text-gray-700 text-sm"><i class="fas fa-comments text-accent mr-2"></i>Communication</div>
+                        <div class="text-gray-700 text-sm"><i class="fas fa-users text-accent mr-2"></i>Teamwork</div>
+                        <div class="text-gray-700 text-sm"><i class="fas fa-handshake text-accent mr-2"></i>Professionalism</div>
+                    </div>
+                </div>
+
+                <!-- Key Achievements -->
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-primary mb-4">Key Achievements</h3>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><i class="fas fa-trophy text-highlight mr-2"></i>Launched live SaaS platform</li>
+                        <li><i class="fas fa-trophy text-highlight mr-2"></i>ML model for healthcare analytics</li>
+                        <li><i class="fas fa-trophy text-highlight mr-2"></i>KenGen industrial attachment</li>
+                        <li><i class="fas fa-trophy text-highlight mr-2"></i>Multiple business analytics projects</li>
+                    </ul>
+                </div>
+
+                <!-- Professional Summary -->
+                <div class="bg-white p-6 rounded-lg shadow-lg md:col-span-2">
+                    <h3 class="text-xl font-semibold text-primary mb-4">Professional Summary</h3>
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                        Highly motivated IT student with expertise in full-stack development, data analytics, and cloud deployment. Proven track record in delivering scalable web applications using modern technologies. Adept at translating business requirements into technical solutions with strong foundation in database management and DevOps practices.
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="Stacey Koigu CV.pdf" download="Stacey Koigu CV.pdf" class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-800 transition inline-flex items-center gap-2">
+                    <i class="fas fa-download"></i> Download Full CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-dark mb-12">Projects</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                    <div class="bg-primary h-48 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">Checkmate SaaS Platform</h3>
+                        <p class="text-gray-600 mb-4">
+                            Full-stack sales performance tracking application with role-based access control and real-time analytics.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">React</span>
+                            <span class="bg-secondary text-dark px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-accent text-white px-3 py-1 rounded-full text-sm">FastAPI</span>
+                            <span class="bg-highlight text-white px-3 py-1 rounded-full text-sm">MongoDB</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="https://github.com/koigu/Employee-SPT" class="text-primary hover:text-secondary transition">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="text-primary hover:text-secondary transition">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-gray-50 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                    <div class="bg-accent h-48 flex items-center justify-center">
+                        <i class="fas fa-brain text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">Healthcare Analytics ML</h3>
+                        <p class="text-gray-600 mb-4">
+                            Machine learning research project for healthcare analytics and predictive modeling.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-secondary text-dark px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-orange text-white px-3 py-1 rounded-full text-sm">TensorFlow</span>
+                            <span class="bg-highlight text-white px-3 py-1 rounded-full text-sm">Pandas</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-accent hover:text-highlight transition">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="Improving Treatment Outcomes_ A Machine Learning-Based Relapse Prediction System.docx" download class="text-accent hover:text-highlight transition">
+                                <i class="fas fa-external-link-alt"></i> Research Paper
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://github.com/koigu/" class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-800 transition inline-flex items-center gap-2">
+                    <i class="fab fa-github"></i> View More Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-dark mb-12">Get In Touch</h2>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-dark mb-6">Contact Information</h3>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-primary text-white p-3 rounded-full">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-dark">Email</p>
+                                <p class="text-gray-600">staceynyambura6@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="bg-primary text-white p-3 rounded-full">
+                                <i class="fas fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-dark">Phone</p>
+                                <p class="text-gray-600">+254769656811</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="bg-primary text-white p-3 rounded-full">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-dark">Location</p>
+                                <p class="text-gray-600">Nairobi, Kenya</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="mt-8">
+                        <h4 class="text-lg font-semibold text-dark mb-4">Connect With Me</h4>
+                        <div class="flex gap-4">
+                            <a href="https://www.linkedin.com/in/stacey-koigu-2a911222b" class="bg-gray-100 p-3 rounded-full hover:bg-primary hover:text-white transition">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="https://github.com/koigu/" class="bg-gray-100 p-3 rounded-full hover:bg-primary hover:text-white transition">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div>
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-dark mb-2">Your Name</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="from_name"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+                                    placeholder="Enter your name"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label class="block text-dark mb-2">Your Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="from_email"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+                                    placeholder="Enter your email"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-dark mb-2">Subject</label>
+                            <input
+                                type="text"
+                                id="subject"
+                                name="subject"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+                                placeholder="Enter subject"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label class="block text-dark mb-2">Message</label>
+                            <textarea
+                                rows="5"
+                                id="message"
+                                name="message"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+                                placeholder="Enter your message"
+                                required
+                            ></textarea>
+                        </div>
+                        <button
+                            type="submit"
+                            id="submit-btn"
+                            class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-800 transition"
+                        >
+                            Send Message
+                        </button>
+                        <div id="status-message" class="mt-4 text-center"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-8 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <p>&copy; 2024 Stacey Nyambura. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // EmailJS configuration - Replace with your actual EmailJS service details
+        const SERVICE_ID = 'your_service_id'; // Replace with your EmailJS service ID
+        const TEMPLATE_ID = 'your_template_id'; // Replace with your EmailJS template ID
+        const PUBLIC_KEY = 'your_public_key'; // Replace with your EmailJS public key
+
+        // Initialize EmailJS
+        emailjs.init(PUBLIC_KEY);
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-xl');
+            } else {
+                nav.classList.remove('shadow-xl');
+            }
+        });
+
+        // Contact form submission handler
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const submitBtn = document.getElementById('submit-btn');
+            const statusMessage = document.getElementById('status-message');
+
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            statusMessage.textContent = '';
+
+            // Prepare template parameters
+            const templateParams = {
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value,
+                to_email: 'staceynyambura6@gmail.com' // Your email where messages will be sent
+            };
+
+            // Send email using EmailJS
+            emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    statusMessage.textContent = 'Message sent successfully! Thank you for reaching out.';
+                    statusMessage.style.color = 'green';
+                    document.getElementById('contact-form').reset();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    statusMessage.textContent = 'Failed to send message. Please try again or contact me directly.';
+                    statusMessage.style.color = 'red';
+                })
+                .finally(function() {
+                    // Re-enable button
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                });
+        });
+
+        // Interactive About section functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const funButton = document.querySelector('.animate-pulse');
+            const funMessages = [
+                "🚀 Ready to launch some awesome projects!",
+                "💡 Innovation is my middle name!",
+                "🌟 Let's build something amazing together!",
+                "🎯 Data-driven solutions for real-world problems!",
+                "🔥 Passionate about tech and entrepreneurship!"
+            ];
+
+            let messageIndex = 0;
+            const photoPlaceholder = document.querySelector('[class*="bg-gray-100"] p');
+
+            funButton.addEventListener('click', function() {
+                // Change button text temporarily
+                const originalText = funButton.textContent;
+                funButton.textContent = "✨ Magic!";
+
+                // Animate the photo area
+                const photoArea = document.querySelector('[class*="bg-gray-100"]');
+                photoArea.style.transform = 'scale(1.1)';
+                photoArea.style.transition = 'transform 0.3s ease';
+
+                // Change placeholder text
+                photoPlaceholder.textContent = funMessages[messageIndex];
+                messageIndex = (messageIndex + 1) % funMessages.length;
+
+                // Reset after animation
+                setTimeout(() => {
+                    funButton.textContent = originalText;
+                    photoArea.style.transform = 'scale(1)';
+                }, 2000);
+            });
+
+            // Add hover effects to paragraphs
+            const paragraphs = document.querySelectorAll('.hover-glow');
+            paragraphs.forEach(p => {
+                p.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                p.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Typing effect for name
+            const nameElement = document.querySelector('.typing-effect');
+            if (nameElement) {
+                const text = nameElement.textContent;
+                nameElement.textContent = '';
+                let i = 0;
+                const typeWriter = () => {
+                    if (i < text.length) {
+                        nameElement.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 100);
+                    }
+                };
+                setTimeout(typeWriter, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
