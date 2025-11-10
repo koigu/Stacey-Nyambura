@@ -110,6 +110,38 @@
         .animate-pulse {
             animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 480px) {
+            .info-card {
+                padding: 0.75rem;
+            }
+
+            .hover-lift:hover {
+                transform: none; /* Disable hover lift on touch devices */
+            }
+
+            .hover-glow:hover {
+                animation: none; /* Disable glow on touch devices */
+            }
+
+            /* Adjust button sizes for very small screens */
+            .bg-primary.text-white.px-4 {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+
+            /* Ensure navigation doesn't overlap content */
+            nav {
+                padding: 0.5rem 1rem;
+            }
+
+            /* Adjust hero image size for very small screens */
+            .w-48.h-48 {
+                width: 10rem;
+                height: 10rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-light">
@@ -118,6 +150,7 @@
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between items-center py-4">
                 <div class="text-2xl font-bold text-primary">SN</div>
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8">
                     <a href="#home" class="text-dark hover:text-primary transition">Home</a>
                     <a href="#about" class="text-dark hover:text-primary transition">About</a>
@@ -125,30 +158,42 @@
                     <a href="#projects" class="text-dark hover:text-primary transition">Projects</a>
                     <a href="#contact" class="text-dark hover:text-primary transition">Contact</a>
                 </div>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-primary focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute top-full left-0 w-full px-4 py-4">
+                <a href="#home" class="block py-2 text-dark hover:text-primary transition">Home</a>
+                <a href="#about" class="block py-2 text-dark hover:text-primary transition">About</a>
+                <a href="#resume" class="block py-2 text-dark hover:text-primary transition">Resume</a>
+                <a href="#projects" class="block py-2 text-dark hover:text-primary transition">Projects</a>
+                <a href="#contact" class="block py-2 text-dark hover:text-primary transition">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen grid grid-cols-1 md:grid-cols-2 px-4 pt-20">
-        <div class="flex items-center justify-start md:justify-center px-4">
+    <section id="home" class="min-h-screen flex flex-col md:grid md:grid-cols-2 px-4 pt-20">
+        <div class="flex items-center justify-start md:justify-center px-4 order-2 md:order-1">
             <div class="text-left md:text-left max-w-lg">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dark mb-8">Hey There!</h1>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-2">I'm Stacey Nyambura</h2>
-                <p class="text-lg md:text-xl text-gray-600 mb-3">Full-Stack Developer | Machine Learning Enthusiast | Data Analyst</p>
-                <p class="text-base md:text-lg text-gray-500 mb-8">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-dark mb-6 md:mb-8">Hey There!</h1>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-2">I'm Stacey Nyambura</h2>
+                <p class="text-base sm:text-lg md:text-xl text-gray-600 mb-3">Full-Stack Developer | Machine Learning Enthusiast | Data Analyst</p>
+                <p class="text-sm sm:text-base md:text-lg text-gray-500 mb-6 md:mb-8">
                     Building scalable web applications and intelligent solutions with Python, React, and modern cloud technologies
                 </p>
-                <div class="flex gap-4 flex-wrap">
-                    <a href="#contact" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition shadow-lg">Hire Me</a>
-                    <a href="#resume" class="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition">View Resume</a>
-                    <a href="#about" class="border border-gray-600 text-gray-600 px-6 py-3 rounded-lg hover:bg-gray-600 hover:text-white transition">Learn More</a>
+                <div class="flex gap-3 md:gap-4 flex-wrap">
+                    <a href="#contact" class="bg-primary text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-blue-800 transition shadow-lg text-sm sm:text-base">Hire Me</a>
+                    <a href="#resume" class="border border-primary text-primary px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-primary hover:text-white transition text-sm sm:text-base">View Resume</a>
+                    <a href="#about" class="border border-gray-600 text-gray-600 px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-gray-600 hover:text-white transition text-sm sm:text-base">Learn More</a>
                 </div>
             </div>
         </div>
-        <div class="relative hidden md:block">
-            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('my profile.jpg');"></div>
-            <div class="absolute inset-0 bg-white bg-opacity-40"></div>
+        <div class="relative flex justify-center items-center order-1 md:order-2 mb-8 md:mb-0">
+            <div class="w-48 h-48 sm:w-56 sm:h-56 md:w-full md:h-full bg-cover bg-center rounded-full md:rounded-none shadow-lg" style="background-image: url('my profile.jpg');"></div>
+            <div class="absolute inset-0 md:absolute md:inset-0 bg-white bg-opacity-40 md:bg-white md:bg-opacity-40 rounded-full md:rounded-none"></div>
         </div>
     </section>
 
@@ -202,6 +247,12 @@
                         <p class="text-gray-600">JKUAT BSc Information Technology</p>
                     </div>
                 </div>
+
+                <!-- Interactive Photo Placeholder -->
+                <div class="bg-gray-100 p-6 rounded-lg mt-8 text-center">
+                    <p id="fun-text" class="text-gray-600">Click the button below for some fun!</p>
+                    <button id="fun-button" class="bg-primary text-white px-4 py-2 rounded mt-4">Fun Button</button>
+                </div>
             </div>
             
         </div>
@@ -212,8 +263,7 @@
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl font-bold text-center text-dark mb-12">Resume Highlights</h2>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Work Experience -->
+            <div class="grid md:grid-cols-2 gap-8">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-semibold text-primary mb-4">Work Experience</h3>
                     <div class="space-y-4">
@@ -235,7 +285,6 @@
                     </div>
                 </div>
 
-                <!-- Certifications -->
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-semibold text-primary mb-4">Certifications</h3>
                     <ul class="space-y-2">
@@ -245,7 +294,6 @@
                     </ul>
                 </div>
 
-                <!-- Soft Skills -->
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-semibold text-primary mb-4">Soft Skills</h3>
                     <div class="grid grid-cols-1 gap-2">
@@ -257,7 +305,6 @@
                     </div>
                 </div>
 
-                <!-- Key Achievements -->
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-semibold text-primary mb-4">Key Achievements</h3>
                     <ul class="space-y-2 text-sm text-gray-700">
@@ -266,14 +313,6 @@
                         <li><i class="fas fa-trophy text-highlight mr-2"></i>KenGen industrial attachment</li>
                         <li><i class="fas fa-trophy text-highlight mr-2"></i>Multiple business analytics projects</li>
                     </ul>
-                </div>
-
-                <!-- Professional Summary -->
-                <div class="bg-white p-6 rounded-lg shadow-lg md:col-span-2">
-                    <h3 class="text-xl font-semibold text-primary mb-4">Professional Summary</h3>
-                    <p class="text-gray-700 text-sm leading-relaxed">
-                        Highly motivated IT student with expertise in full-stack development, data analytics, and cloud deployment. Proven track record in delivering scalable web applications using modern technologies. Adept at translating business requirements into technical solutions with strong foundation in database management and DevOps practices.
-                    </p>
                 </div>
             </div>
 
@@ -311,7 +350,7 @@
                             <a href="https://github.com/koigu/Employee-SPT" class="text-primary hover:text-secondary transition">
                                 <i class="fab fa-github"></i> Code
                             </a>
-                            <a href="#" class="text-primary hover:text-secondary transition">
+                            <a href="https://employee-spt.vercel.app/" class="text-primary hover:text-secondary transition">
                                 <i class="fas fa-external-link-alt"></i> Live Demo
                             </a>
                         </div>
@@ -483,9 +522,9 @@
 
     <script>
         // EmailJS configuration - Replace with your actual EmailJS service details
-        const SERVICE_ID = 'your_service_id'; // Replace with your EmailJS service ID
-        const TEMPLATE_ID = 'your_template_id'; // Replace with your EmailJS template ID
-        const PUBLIC_KEY = 'your_public_key'; // Replace with your EmailJS public key
+        const SERVICE_ID = 'service_c7ql8sy'; // Replace with your EmailJS service ID
+        const TEMPLATE_ID = 'template_yeqmf71'; // Replace with your EmailJS template ID
+        const PUBLIC_KEY = 'd7RuzpZCt5XCHeOEr'; // Replace with your EmailJS public key
 
         // Initialize EmailJS
         emailjs.init(PUBLIC_KEY);
@@ -511,6 +550,19 @@
             } else {
                 nav.classList.remove('shadow-xl');
             }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
         });
 
         // Contact form submission handler
@@ -555,7 +607,7 @@
 
         // Interactive About section functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const funButton = document.querySelector('.animate-pulse');
+            const funButton = document.getElementById('fun-button');
             const funMessages = [
                 "🚀 Ready to launch some awesome projects!",
                 "💡 Innovation is my middle name!",
@@ -565,28 +617,30 @@
             ];
 
             let messageIndex = 0;
-            const photoPlaceholder = document.querySelector('[class*="bg-gray-100"] p');
+            const funText = document.getElementById('fun-text');
 
-            funButton.addEventListener('click', function() {
-                // Change button text temporarily
-                const originalText = funButton.textContent;
-                funButton.textContent = "✨ Magic!";
+            if (funButton && funText) {
+                funButton.addEventListener('click', function() {
+                    // Change button text temporarily
+                    const originalText = funButton.textContent;
+                    funButton.textContent = "✨ Magic!";
 
-                // Animate the photo area
-                const photoArea = document.querySelector('[class*="bg-gray-100"]');
-                photoArea.style.transform = 'scale(1.1)';
-                photoArea.style.transition = 'transform 0.3s ease';
+                    // Animate the photo area
+                    const photoArea = document.querySelector('.bg-gray-100');
+                    photoArea.style.transform = 'scale(1.1)';
+                    photoArea.style.transition = 'transform 0.3s ease';
 
-                // Change placeholder text
-                photoPlaceholder.textContent = funMessages[messageIndex];
-                messageIndex = (messageIndex + 1) % funMessages.length;
+                    // Change placeholder text
+                    funText.textContent = funMessages[messageIndex];
+                    messageIndex = (messageIndex + 1) % funMessages.length;
 
-                // Reset after animation
-                setTimeout(() => {
-                    funButton.textContent = originalText;
-                    photoArea.style.transform = 'scale(1)';
-                }, 2000);
-            });
+                    // Reset after animation
+                    setTimeout(() => {
+                        funButton.textContent = originalText;
+                        photoArea.style.transform = 'scale(1)';
+                    }, 2000);
+                });
+            }
 
             // Add hover effects to paragraphs
             const paragraphs = document.querySelectorAll('.hover-glow');
