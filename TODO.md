@@ -1,17 +1,11 @@
-# TODO: Make Portfolio App Responsive on All Devices Including Mobile
+# TODO - Apply portfolio template to React app (GitHub Pages friendly)
 
-## Steps to Complete
+- [ ] Wire Tailwind into CRA app (`src/index.css` with @tailwind directives).
+- [ ] Replace `src/App.js` with full single-page layout (Navbar, Hero, About, Resume, Projects, Contact, Footer) matching template.
+- [ ] Create `src/components/Projects/Projects.js` from template Projects section.
+- [ ] Create `src/components/Navbar/Navbar.js` + `src/components/Footer/Footer.js`.
+- [ ] Update existing `About.js`, `Hero.js`, `Resume.js`, `Contact.js` to match template content/styles.
+- [ ] Ensure internal anchor links work with GitHub Pages base path by using relative URLs and hash navigation only.
+- [ ] Add required dependencies for icons/animations if missing.
+- [ ] Run `npm test` / `npm run build` and verify it deploys on GitHub Pages (no broken assets/links).
 
-- [x] Step 1: Modify Hero section to display profile image on mobile devices (e.g., as a small circular image below the text for better engagement).
-- [x] Step 2: Review and adjust text sizes, button layouts, and spacing for optimal display on small screens (ensure no overflow or cramped elements).
-- [x] Step 3: Add custom media queries in the style section for fine-tuning animations and layouts on very small devices (e.g., phones under 480px).
-- [x] Step 4: Verify overall responsiveness by checking grids, navigation, and form elements stack properly on mobile.
-
-## Additional Tasks Completed
-
-- [x] EmailJS Contact Form Setup: Configured EmailJS with service ID, template ID, and public key for functional contact form.
-
-## Progress Tracking
-- Started: [Date/Time]
-- Completed Steps: Step 1, Step 2, Step 3, Step 4, EmailJS Setup
-- Remaining: None - All tasks completed

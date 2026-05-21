@@ -1,53 +1,59 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-light to-blue-50 px-4">
-      <div className="text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-5xl md:text-6xl font-bold text-dark mb-4"
-        >
-          Stacey Nyambura
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl text-gray-600 mb-4"
-        >
-          Full-Stack Developer & Machine Learning Enthusiast
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-lg text-gray-500 mb-8 max-w-2xl mx-auto"
-        >
-          Building scalable web applications and intelligent solutions with Python, React, and modern cloud technologies
-        </motion.p>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex gap-4 justify-center flex-wrap"
-        >
-          <a href="#contact" className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition shadow-lg">
-            Hire Me
-          </a>
-          <a href="#projects" className="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition">
-            View Projects
-          </a>
-          <a href="#resume" className="border border-gray-600 text-gray-600 px-6 py-3 rounded-lg hover:bg-gray-600 hover:text-white transition">
-            Download CV
-          </a>
-        </motion.div>
+    <section
+      id="home"
+      className="min-h-screen flex flex-col md:grid md:grid-cols-2 px-4 sm:px-6 lg:px-8 xl:px-12 pt-20 bg-light"
+    >
+      <div className="flex items-center justify-start md:justify-center px-4 order-2 md:order-1">
+        <div className="text-left md:text-left max-w-lg">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-dark mb-6 md:mb-8">
+            Hey There!
+          </h1>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-2">
+            I'm Stacey Nyambura
+          </h2>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-3">
+            Full-Stack Developer | Machine Learning Enthusiast | Data Analyst
+          </p>
+          <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-6 md:mb-8">
+            Building scalable web applications and intelligent solutions with Python, React, and modern cloud
+            technologies
+          </p>
+          <div className="flex gap-3 md:gap-4 flex-wrap">
+            <a
+              href="#contact"
+              className="bg-primary text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-blue-800 transition shadow-lg text-sm sm:text-base"
+            >
+              Hire Me
+            </a>
+            <a
+              href="#resume"
+              className="border border-primary text-primary px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-primary hover:text-white transition text-sm sm:text-base"
+            >
+              View Resume
+            </a>
+            <a
+              href="#about"
+              className="border border-gray-600 text-gray-600 px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-gray-600 hover:text-white transition text-sm sm:text-base"
+            >
+              Learn More
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative flex justify-center items-center order-1 md:order-2 mb-8 md:mb-0">
+        <div
+          className="w-48 h-48 sm:w-56 sm:h-56 md:w-full md:h-full bg-cover bg-center rounded-full md:rounded-none shadow-lg"
+          style={{ backgroundImage: "url('./my profile.jpg')" }}
+        />
+        <div className="absolute inset-0 md:absolute md:inset-0 bg-white bg-opacity-40 md:bg-white md:bg-opacity-40 rounded-full md:rounded-none" />
       </div>
     </section>
   );
 };
 
 export default Hero;
+

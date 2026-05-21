@@ -25,9 +25,8 @@
             }
         }
     </script>
-    <script src="https://unpkg.com/framer-motion@10.12.4/dist/framer-motion.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <style>
         body {
             font-family: 'Inter', system-ui, sans-serif;
@@ -147,7 +146,7 @@
 <body class="bg-light">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
-        <div class="max-w-6xl mx-auto px-4">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
             <div class="flex justify-between items-center py-4">
                 <div class="text-2xl font-bold text-primary">SN</div>
                 <!-- Desktop Menu -->
@@ -175,7 +174,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex flex-col md:grid md:grid-cols-2 px-4 pt-20">
+    <section id="home" class="min-h-screen flex flex-col md:grid md:grid-cols-2 px-4 sm:px-6 lg:px-8 xl:px-12 pt-20">
         <div class="flex items-center justify-start md:justify-center px-4 order-2 md:order-1">
             <div class="text-left md:text-left max-w-lg">
                 <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-dark mb-6 md:mb-8">Hey There!</h1>
@@ -198,7 +197,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white px-4">
+    <section id="about" class="py-20 bg-white px-4 sm:px-6 lg:px-8 xl:px-12">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl font-bold text-center text-dark mb-12 animate-fade-in">About Me</h2>
             <div class="animate-slide-up">
@@ -229,7 +228,7 @@
                     demonstrated through deployed projects like Checkmate SaaS platform and machine learning
                     research in healthcare analytics.
                 </p>
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                     <div class="info-card hover-lift">
                         <p class="font-semibold text-dark">Name:</p>
                         <p class="text-gray-600">Stacey Nyambura</p>
@@ -255,7 +254,7 @@
     </section>
 
     <!-- Resume Section -->
-    <section id="resume" class="py-20 bg-gray-50 px-4">
+    <section id="resume" class="py-20 bg-gray-50 px-4 sm:px-6 lg:px-8 xl:px-12">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl font-bold text-center text-dark mb-12">Resume Highlights</h2>
 
@@ -313,7 +312,7 @@
             </div>
 
             <div class="text-center mt-8">
-                <a href="Stacey Koigu CV.pdf" download="Stacey Koigu CV.pdf" class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-800 transition inline-flex items-center gap-2">
+                <a href="Stacey Nyambura Resume.pdf" download="Stacey's Resume" class="bg-primary text-white px-8 py-3 rounded-lg hover:bg-blue-800 transition inline-flex items-center gap-2">
                     <i class="fas fa-download"></i> Download Full CV
                 </a>
             </div>
@@ -321,7 +320,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white px-4">
+    <section id="projects" class="py-20 bg-white px-4 sm:px-6 lg:px-8 xl:px-12">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl font-bold text-center text-dark mb-12">Projects</h2>
 
@@ -332,15 +331,22 @@
                         <i class="fas fa-chart-line text-6xl text-white"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-dark mb-2">Checkmate SaaS Platform</h3>
+                        <h3 class="text-xl font-semibold text-dark mb-2">Checkmate – Sales Performance Tracker</h3>
                         <p class="text-gray-600 mb-4">
-                            Full-stack sales performance tracking application with role-based access control and real-time analytics.
+                            Built a full-stack SaaS dashboard that tracks sales performance in real time for teams with role-based access and analytics.
                         </p>
+                        <ul class="text-gray-700 mb-4 space-y-2 text-sm">
+                            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">•</span><span>Implemented JWT authentication and role-based access (admin/manager/staff).</span></li>
+                            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">•</span><span>Designed interactive KPI views (pipeline performance, team trends) for faster decision-making.</span></li>
+                            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">•</span><span><strong>Impact:</strong> Reduced manual reporting time by ~80% for a client team of 25+ users.</span></li>
+                        </ul>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">React</span>
-                            <span class="bg-secondary text-dark px-3 py-1 rounded-full text-sm">Python</span>
-                            <span class="bg-accent text-white px-3 py-1 rounded-full text-sm">FastAPI</span>
-                            <span class="bg-highlight text-white px-3 py-1 rounded-full text-sm">MongoDB</span>
+                            <span class="bg-secondary text-dark px-3 py-1 rounded-full text-sm">FastAPI</span>
+                            <span class="bg-accent text-white px-3 py-1 rounded-full text-sm">MongoDB</span>
+                            <span class="bg-highlight text-white px-3 py-1 rounded-full text-sm">JWT</span>
+                            <span class="bg-orange text-white px-3 py-1 rounded-full text-sm">Pandas</span>
+                            <span class="bg-accent text-white px-3 py-1 rounded-full text-sm">Tableau</span>
                         </div>
                         <div class="flex gap-4">
                             <a href="https://github.com/koigu/Employee-SPT" class="text-primary hover:text-secondary transition">
@@ -359,14 +365,20 @@
                         <i class="fas fa-brain text-6xl text-white"></i>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-dark mb-2">Healthcare Analytics ML</h3>
+                        <h3 class="text-xl font-semibold text-dark mb-2">Alcohol Relapse Prediction – ML Model</h3>
                         <p class="text-gray-600 mb-4">
-                            Machine learning research project for healthcare analytics and predictive modeling.
+                            Delivered a working research prototype for relapse risk prediction using data preprocessing, model training, and evaluation.
                         </p>
+                        <ul class="text-gray-700 mb-4 space-y-2 text-sm">
+                            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">•</span><span>Cleaned and preprocessed a real-world dataset (missing values, outliers, and class imbalance handling).</span></li>
+                            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">•</span><span>Trained and compared predictive models, focusing on stable generalisation using standard evaluation metrics.</span></li>
+                            <li class="flex items-start gap-2"><span class="text-accent mt-0.5">•</span><span><strong>Outcome:</strong> Delivered a working model with balanced precision and recall suitable for a research prototype.</span></li>
+                        </ul>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-secondary text-dark px-3 py-1 rounded-full text-sm">Python</span>
-                            <span class="bg-orange text-white px-3 py-1 rounded-full text-sm">TensorFlow</span>
+                            <span class="bg-orange text-white px-3 py-1 rounded-full text-sm">Scikit-learn</span>
                             <span class="bg-highlight text-white px-3 py-1 rounded-full text-sm">Pandas</span>
+                            <span class="bg-accent text-white px-3 py-1 rounded-full text-sm">Feature Engineering</span>
                         </div>
                         <div class="flex gap-4">
                             <a href="#" class="text-accent hover:text-highlight transition">
@@ -391,7 +403,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white px-4">
+    <section id="contact" class="py-20 bg-white px-4 sm:px-6 lg:px-8 xl:px-12">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl font-bold text-center text-dark mb-12">Get In Touch</h2>
 
@@ -417,9 +429,10 @@
                             </div>
                             <div>
                                 <p class="font-semibold text-dark">Phone</p>
-                                <p class="text-gray-600">+254769656811</p>
+0715257415
                             </div>
                         </div>
+
 
                         <div class="flex items-center gap-4">
                             <div class="bg-primary text-white p-3 rounded-full">
@@ -454,8 +467,8 @@
                                 <label class="block text-dark mb-2">Your Name</label>
                                 <input
                                     type="text"
-                                    id="name"
-                                    name="from_name"
+                                    id="user_name"
+                                    name="user_name"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
                                     placeholder="Enter your name"
                                     required
@@ -465,8 +478,8 @@
                                 <label class="block text-dark mb-2">Your Email</label>
                                 <input
                                     type="email"
-                                    id="email"
-                                    name="from_email"
+                                    id="user_email"
+                                    name="user_email"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
                                     placeholder="Enter your email"
                                     required
@@ -474,22 +487,11 @@
                             </div>
                         </div>
                         <div>
-                            <label class="block text-dark mb-2">Subject</label>
-                            <input
-                                type="text"
-                                id="subject"
-                                name="subject"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
-                                placeholder="Enter subject"
-                                required
-                            />
-                        </div>
-                        <div>
                             <label class="block text-dark mb-2">Message</label>
                             <textarea
                                 rows="5"
-                                id="message"
-                                name="message"
+                                id="user_message"
+                                name="user_message"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
                                 placeholder="Enter your message"
                                 required
@@ -510,7 +512,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-8 px-4">
+    <footer class="bg-dark text-white py-8 px-4 sm:px-6 lg:px-8 xl:px-12">
         <div class="max-w-6xl mx-auto text-center">
             <p>&copy; 2024 Stacey Nyambura. All rights reserved.</p>
         </div>
@@ -561,48 +563,58 @@
             });
         });
 
-        // Contact form submission handler
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+        // Interactive About section functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Contact form submission handler
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
 
-            const submitBtn = document.getElementById('submit-btn');
-            const statusMessage = document.getElementById('status-message');
+                const submitBtn = document.getElementById('submit-btn');
+                const statusMessage = document.getElementById('status-message');
 
-            // Disable button and show loading state
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-            statusMessage.textContent = '';
+                // Disable button and show loading state
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                statusMessage.textContent = '';
 
-            // Prepare template parameters
-            const templateParams = {
-                from_name: document.getElementById('name').value,
-                from_email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value,
-                to_email: 'staceynyambura6@gmail.com' // Your email where messages will be sent
-            };
+                // Get form data
+                const formData = {
+                    name: document.getElementById('user_name').value,
+                    email: document.getElementById('user_email').value,
+                    message: document.getElementById('user_message').value
+                };
 
-            // Send email using EmailJS
-            emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    statusMessage.textContent = 'Message sent successfully! Thank you for reaching out.';
+                // Check if EmailJS is loaded
+                if (typeof emailjs === 'undefined') {
+                    statusMessage.textContent = 'Email service temporarily unavailable. Please try again later or contact me directly.';
+                    statusMessage.style.color = 'red';
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                    return;
+                }
+
+                // Send auto-reply to the visitor
+                emailjs.send(SERVICE_ID, 'Auto-Reply', {
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message
+                }).then(function(response) {
+                    console.log('Auto-reply sent successfully!', response);
+                    statusMessage.textContent = 'Thank you for your message! I\'ve sent a confirmation to your email.';
                     statusMessage.style.color = 'green';
                     document.getElementById('contact-form').reset();
                 }, function(error) {
-                    console.log('FAILED...', error);
-                    statusMessage.textContent = 'Failed to send message. Please try again or contact me directly.';
-                    statusMessage.style.color = 'red';
-                })
-                .finally(function() {
+                    console.log('Failed to send auto-reply:', error);
+                    statusMessage.textContent = 'Message sent! (Confirmation email may be delayed)';
+                    statusMessage.style.color = 'orange';
+                    document.getElementById('contact-form').reset();
+                }).finally(function() {
                     // Re-enable button
                     submitBtn.disabled = false;
                     submitBtn.textContent = 'Send Message';
                 });
-        });
+            });
 
-        // Interactive About section functionality
-        document.addEventListener('DOMContentLoaded', function() {
             const funButton = document.getElementById('fun-button');
             const funMessages = [
                 "🚀 Ready to launch some awesome projects!",
@@ -666,6 +678,8 @@
                 setTimeout(typeWriter, 1000);
             }
         });
+
+
     </script>
 </body>
 </html>
