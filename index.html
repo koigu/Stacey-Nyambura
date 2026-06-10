@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Stacey Nyambura — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sand: #F5EFE0;
+    --sand-dark: #EAE0CC;
+    --bark: #6B4F35;
+    --bark-light: #9A7558;
+    --clay: #C4714A;
+    --clay-light: #E8A882;
+    --moss: #5C6B4A;
+    --moss-light: #7E9465;
+    --charcoal: #2A2520;
+    --warm-gray: #8A7E74;
+    --cream: #FBF7F0;
+    --white: #FFFFFF;
+    --border: rgba(107, 79, 53, 0.15);
+    --border-med: rgba(107, 79, 53, 0.25);
+    --shadow: 0 2px 20px rgba(42, 37, 32, 0.08);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(251, 247, 240, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--bark);
+    letter-spacing: -0.5px;
+  }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 14px; font-weight: 500;
+    color: var(--warm-gray);
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--bark); }
+
+  .nav-toggle { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+  .nav-toggle span { width: 24px; height: 1.5px; background: var(--bark); display: block; transition: all 0.3s; }
+
+  /* HERO */
+  #home {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 80px 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; top: 0; right: 0;
+    width: 55%; height: 100%;
+    background: var(--sand);
+    clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative; z-index: 1;
+    max-width: 1100px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+
+  .hero-text {}
+
+  .hero-eyebrow {
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 1rem;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--charcoal);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-titles {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title-tag {
+    font-size: 13px; font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 100px;
+    border: 1px solid var(--border-med);
+    color: var(--bark);
+    background: rgba(255,255,255,0.6);
+  }
+
+  .hero-desc {
+    font-size: 16px; color: var(--warm-gray);
+    line-height: 1.8; max-width: 480px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--bark);
+    color: var(--cream);
+    font-size: 14px; font-weight: 500;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--charcoal); transform: translateY(-1px); }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 12px 28px;
+    border: 1px solid var(--border-med);
+    color: var(--bark);
+    font-size: 14px; font-weight: 500;
+    border-radius: 6px;
+    text-decoration: none;
+    background: transparent;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--bark); background: var(--sand); }
+
+  .hero-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+
+  .hero-card-intro {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--bark);
+    font-style: italic;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .info-row {
+    display: flex; flex-direction: column; gap: 10px;
+  }
+
+  .info-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 14px;
+  }
+
+  .info-label {
+    font-weight: 500; color: var(--warm-gray);
+    min-width: 80px; flex-shrink: 0;
+    font-size: 12px; text-transform: uppercase;
+    letter-spacing: 0.05em; padding-top: 2px;
+  }
+
+  .info-value { color: var(--charcoal); }
+
+  /* SECTION COMMON */
+  section { padding: 80px 2rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-header { margin-bottom: 3rem; }
+
+  .section-eyebrow {
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--clay); margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700; color: var(--charcoal);
+    line-height: 1.2;
+  }
+
+  /* ABOUT */
+  #about { background: var(--white); }
+
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: start;
+  }
+
+  .about-text p {
+    color: var(--warm-gray); font-size: 16px;
+    line-height: 1.8; margin-bottom: 1rem;
+  }
+
+  .about-text p strong { color: var(--bark); font-weight: 500; }
+
+  .about-highlights {
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+
+  .highlight-card {
+    background: var(--cream);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--clay);
+  }
+
+  .highlight-card h4 {
+    font-weight: 500; font-size: 14px;
+    color: var(--bark); margin-bottom: 0.25rem;
+  }
+
+  .highlight-card p {
+    font-size: 14px; color: var(--warm-gray); line-height: 1.6;
+  }
+
+  /* RESUME */
+  #resume { background: var(--sand); }
+
+  .resume-cols {
+    display: grid; grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+  }
+
+  .resume-section-title {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--bark-light); margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+
+  .timeline-item {
+    display: grid; grid-template-columns: 120px 1fr;
+    gap: 1.25rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .timeline-item:last-child { border-bottom: none; }
+
+  .timeline-period {
+    font-size: 12px; color: var(--clay);
+    font-weight: 500; padding-top: 3px;
+  }
+
+  .timeline-content h4 {
+    font-weight: 500; font-size: 15px; color: var(--charcoal);
+    margin-bottom: 2px;
+  }
+
+  .timeline-content .org {
+    font-size: 12px; color: var(--bark-light); margin-bottom: 6px;
+  }
+
+  .timeline-content p {
+    font-size: 14px; color: var(--warm-gray); line-height: 1.6;
+  }
+
+  .edu-item {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .edu-item:last-child { border-bottom: none; }
+
+  .edu-item h4 { font-weight: 500; font-size: 15px; color: var(--charcoal); margin-bottom: 2px; }
+  .edu-item .school { font-size: 13px; color: var(--bark-light); margin-bottom: 4px; }
+  .edu-item .period { font-size: 12px; color: var(--clay); }
+  .edu-item .badge {
+    display: inline-block; margin-top: 6px;
+    font-size: 11px; padding: 3px 10px;
+    background: rgba(196, 113, 74, 0.12);
+    color: var(--clay); border-radius: 100px; font-weight: 500;
+  }
+
+  .cert-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .cert-list li {
+    font-size: 14px; color: var(--warm-gray);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .cert-list li::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--clay); flex-shrink: 0;
+  }
+
+  .skills-grid {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-top: 0.5rem;
+  }
+
+  .skill-tag {
+    font-size: 12px; padding: 5px 12px;
+    background: var(--white); color: var(--bark);
+    border: 1px solid var(--border-med);
+    border-radius: 100px; font-weight: 500;
+  }
+
+  .cv-row {
+    margin-top: 2.5rem; text-align: center;
+  }
+
+  /* PROJECTS */
+  #projects { background: var(--white); }
+
+  .projects-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.75rem;
+    transition: box-shadow 0.2s, transform 0.15s;
+  }
+  .project-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+  }
+
+  .project-number {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; color: var(--clay);
+    margin-bottom: 0.75rem;
+  }
+
+  .project-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700;
+    color: var(--charcoal); margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .project-card p {
+    font-size: 14px; color: var(--warm-gray);
+    line-height: 1.7; margin-bottom: 1rem;
+  }
+
+  .project-impacts {
+    list-style: none; display: flex; flex-direction: column;
+    gap: 6px; margin-bottom: 1.25rem;
+  }
+
+  .project-impacts li {
+    font-size: 13px; color: var(--bark);
+    display: flex; align-items: flex-start; gap: 8px;
+    line-height: 1.5;
+  }
+  .project-impacts li::before {
+    content: '→'; color: var(--clay); flex-shrink: 0; font-size: 12px;
+    padding-top: 1px;
+  }
+
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
+  .project-tag {
+    font-size: 11px; padding: 3px 10px;
+    background: rgba(107, 79, 53, 0.08);
+    color: var(--bark); border-radius: 100px; font-weight: 500;
+  }
+
+  .project-links { display: flex; gap: 0.75rem; }
+  .project-link {
+    font-size: 13px; color: var(--bark);
+    text-decoration: none; font-weight: 500;
+    display: flex; align-items: center; gap: 4px;
+    border-bottom: 1px solid var(--border-med);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .project-link:hover { color: var(--clay); border-color: var(--clay); }
+  .project-link::after { content: '↗'; font-size: 11px; }
+
+  .projects-footer {
+    text-align: center; margin-top: 2.5rem;
+  }
+
+  /* CONTACT */
+  #contact { background: var(--charcoal); }
+  #contact .section-eyebrow { color: var(--clay-light); }
+  #contact .section-title { color: var(--cream); }
+
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .contact-item {
+    display: flex; flex-direction: column; gap: 3px;
+  }
+
+  .contact-item-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--bark-light);
+  }
+
+  .contact-item a, .contact-item span {
+    font-size: 15px; color: var(--sand-dark);
+    text-decoration: none;
+  }
+  .contact-item a:hover { color: var(--clay-light); }
+
+  .social-links { display: flex; gap: 0.75rem; margin-top: 0.5rem; }
+
+  .social-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 16px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    font-size: 13px; font-weight: 500;
+    color: var(--sand-dark);
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .social-link:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.25);
+  }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 5px; }
+
+  .form-label {
+    font-size: 12px; font-weight: 500;
+    color: var(--bark-light); letter-spacing: 0.05em;
+  }
+
+  .form-input, .form-textarea {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 11px 14px;
+    color: var(--cream);
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.3); }
+  .form-input:focus, .form-textarea:focus { border-color: var(--clay); }
+
+  .form-textarea { resize: vertical; min-height: 110px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+  footer p { font-size: 13px; color: var(--warm-gray); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: absolute; top: 64px; left: 0; right: 0;
+      background: var(--cream); padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+      gap: 1.25rem;
+    }
+    .nav-toggle { display: flex; }
+
+    .hero-bg { width: 100%; clip-path: none; opacity: 0.4; }
+    .hero-content { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-card { display: none; }
+
+    .about-grid,
+    .resume-cols,
+    .projects-grid,
+    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+    .timeline-item { grid-template-columns: 80px 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+
+    section { padding: 60px 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SN</div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Portfolio</p>
+      <h1 class="hero-name">Stacey<br/>Nyambura</h1>
+      <div class="hero-titles">
+        <span class="hero-title-tag">Data Analyst</span>
+        <span class="hero-title-tag">Entrepreneur</span>
+        <span class="hero-title-tag">Developer</span>
+      </div>
+      <p class="hero-desc">Turning data into decisions and ideas into products. I bring an entrepreneurial lens to analytics — building solutions that are grounded in insight and driven by impact.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get in Touch</a>
+        <a href="Stacey_Nyambura_Resume.pdf" download class="btn-outline">Download CV</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <p class="hero-card-intro">"The Data Whisperer with a Business Mindset"</p>
+      <div class="info-row">
+        <div class="info-item">
+          <span class="info-label">Name</span>
+          <span class="info-value">Stacey Nyambura</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Email</span>
+          <span class="info-value">staceynyambura6@gmail.com</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Location</span>
+          <span class="info-value">Nairobi, Kenya</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Focus</span>
+          <span class="info-value">Data Analytics &amp; Entrepreneurship</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-eyebrow">About me</p>
+      <h2 class="section-title">Data-driven. Community-minded.<br/>Always building.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>My path into data analytics began in a place you might not expect: sales. Working directly with customers taught me how business really moves — through people, patterns, and the stories numbers tell. That spark led me deeper into data structures, analysis, and machine learning.</p>
+        <p>Today I'm channelling that foundation into a Data Science programme at Moringa School, sharpening the skills to build analytical solutions that actually matter on the ground — in agriculture, local business, and community infrastructure across Kenya.</p>
+        <p><strong>What sets me apart</strong> is the combination of technical fluency and entrepreneurial thinking. I don't just analyse data — I ask what we should do about it, and then I build toward that answer.</p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <h4>Analytical Thinking</h4>
+          <p>From raw datasets to business decisions — I translate complexity into clarity for stakeholders at every level.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Entrepreneurial Mindset</h4>
+          <p>Committed to building solutions to local challenges. I blend data with strategy to launch sustainable initiatives.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Full-Stack Capability</h4>
+          <p>Beyond analysis — I can build the product around the data, from backend APIs to client-facing dashboards.</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Community Impact</h4>
+          <p>Always looking for opportunities to use data and technology to make a meaningful difference close to home.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-eyebrow">Resume</p>
+      <h2 class="section-title">Experience &amp; Education</h2>
+    </div>
+    <div class="resume-cols">
+      <!-- LEFT: Experience + Education -->
+      <div>
+        <p class="resume-section-title">Work experience</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-period">2024 – Present</span>
+            <div class="timeline-content">
+              <h4>Full-Stack Developer</h4>
+              <p class="org">Independent</p>
+              <p>Designing secure, scalable web applications with RESTful APIs and modern cloud technologies.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-period">2023 – Present</span>
+            <div class="timeline-content">
+              <h4>Data Analyst</h4>
+              <p class="org">Small Businesses (Independent)</p>
+              <p>Cleaned and analysed sales data using Python and Excel, designed Tableau dashboards for revenue and customer segments, and delivered recommendations that reduced stockouts by ~20% across 3 local retailers.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-period">2019 – 2021</span>
+            <div class="timeline-content">
+              <h4>Sales Assistant</h4>
+              <p class="org">Retail</p>
+              <p>Built a foundation in customer insights and market trend analysis that sparked a deeper interest in data.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="resume-section-title" style="margin-top: 2.5rem;">Education</p>
+        <div class="edu-item">
+          <h4>Data Science Programme</h4>
+          <p class="school">Moringa School</p>
+          <p class="period">2024 – Present</p>
+          <span class="badge">In Progress</span>
+        </div>
+        <div class="edu-item">
+          <h4>BSc Information Technology</h4>
+          <p class="school">Jomo Kenyatta University of Agriculture and Technology (JKUAT)</p>
+          <p class="period">Completed</p>
+        </div>
+      </div>
+
+      <!-- RIGHT: Certifications, Skills, Achievements -->
+      <div>
+        <p class="resume-section-title">Certifications</p>
+        <ul class="cert-list">
+          <li>DataCamp MySQL — Intermediate</li>
+          <li>Cisco Cybersecurity Essentials</li>
+          <li>Huawei HCIA Datacom</li>
+        </ul>
+
+        <p class="resume-section-title" style="margin-top: 2rem;">Technical skills</p>
+        <div class="skills-grid">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag">SAP</span>
+          <span class="skill-tag">JWT Auth</span>
+        </div>
+
+        <p class="resume-section-title" style="margin-top: 2rem;">Soft skills</p>
+        <div class="skills-grid">
+          <span class="skill-tag">Analytical Thinking</span>
+          <span class="skill-tag">Communication</span>
+          <span class="skill-tag">Teamwork</span>
+          <span class="skill-tag">Professionalism</span>
+          <span class="skill-tag">Time Management</span>
+        </div>
+
+        <p class="resume-section-title" style="margin-top: 2rem;">Key achievements</p>
+        <ul class="cert-list">
+          <li>Launched live SaaS platform (Checkmate)</li>
+          <li>ML model for healthcare analytics research</li>
+          <li>KenGen industrial attachment</li>
+          <li>Multiple business analytics projects</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cv-row">
+      <a href="Stacey_Nyambura_Resume.pdf" download class="btn-primary">Download Full CV</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-eyebrow">Projects</p>
+      <h2 class="section-title">Selected Work</h2>
+    </div>
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <p class="project-number">01</p>
+        <h3>Checkmate — Sales Performance Tracker</h3>
+        <p>A full-stack SaaS dashboard that tracks sales performance in real time for teams, with role-based access and live analytics.</p>
+        <ul class="project-impacts">
+          <li>JWT authentication with tiered access for admins, managers, and staff</li>
+          <li>Interactive KPI views — pipeline performance and team trends for faster decision-making</li>
+          <li>Cut manual reporting time by ~80% for a team of 25+ users</li>
+        </ul>
+        <div class="project-tags">
+          <span class="project-tag">React</span>
+          <span class="project-tag">FastAPI</span>
+          <span class="project-tag">MongoDB</span>
+          <span class="project-tag">Pandas</span>
+          <span class="project-tag">Tableau</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/koigu/Employee-SPT" class="project-link" target="_blank" rel="noopener">Code</a>
+          <a href="https://employee-spt.vercel.app/" class="project-link" target="_blank" rel="noopener">Live Demo</a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <p class="project-number">02</p>
+        <h3>Alcohol Relapse Prediction — ML Model</h3>
+        <p>A research prototype predicting relapse risk using real-world clinical data, designed to support early intervention in healthcare settings.</p>
+        <ul class="project-impacts">
+          <li>Cleaned and preprocessed a real clinical dataset — handling missing values, outliers, and class imbalance</li>
+          <li>Trained and compared multiple predictive models with a focus on generalisation</li>
+          <li>Delivered a prototype with balanced precision and recall, suitable for a research setting</li>
+        </ul>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Scikit-learn</span>
+          <span class="project-tag">Pandas</span>
+          <span class="project-tag">Feature Engineering</span>
+        </div>
+        <div class="project-links">
+          <a href="Improving Treatment Outcomes_ A Machine Learning-Based Relapse Prediction System.docx" class="project-link">Research Paper</a>
+        </div>
+      </div>
+    </div>
+    <div class="projects-footer">
+      <a href="https://github.com/koigu/" target="_blank" rel="noopener" class="btn-outline">View More on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-header">
+      <p class="section-eyebrow">Get in touch</p>
+      <h2 class="section-title">Let's work together</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <span class="contact-item-label">Email</span>
+          <a href="mailto:staceynyambura6@gmail.com">staceynyambura6@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-label">Location</span>
+          <span>Nairobi, Kenya</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-label">References</span>
+          <span>Available on request</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-label">Connect</span>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/stacey-koigu-2a911222b" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
+            <a href="https://github.com/koigu/" target="_blank" rel="noopener" class="social-link">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-input" type="text" id="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" type="email" id="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" placeholder="Tell me about your project or opportunity..." required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="align-self: flex-start;">Send message</button>
+        <p id="form-status" style="font-size:13px; color: var(--clay-light); display:none; margin-top: 0.5rem;">Message sent! I'll get back to you soon.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Stacey Nyambura. All rights reserved.</p>
+</footer>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const status = document.getElementById('form-status');
+    status.style.display = 'block';
+    e.target.reset();
+    setTimeout(() => { status.style.display = 'none'; }, 4000);
+  }
+</script>
+</body>
+</html>
